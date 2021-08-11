@@ -3,8 +3,18 @@ import { StyleSheet, Text, View } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { Button, PricingCard } from 'react-native-elements'
 import tailwind from 'tailwind-rn'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '@/features'
+import { HELLO, helloThunks, IHelloState } from '@/features/modules/hello'
 
 export default function HomeScreen () {
+  const dispatch = useDispatch()
+  const { count } = useSelector<RootState, IHelloState>(state => state[HELLO])
+
+  const handleClickBtn = () => {
+    dispatch(helloThunks.addCount())
+  }
+
   return (
     <View style={styles.container}>
       <View style={
@@ -15,10 +25,13 @@ export default function HomeScreen () {
             tailwind('text-blue-800 font-semibold')
           }
         >
-          Hello World!!
+          Hello World!! : {count}
         </Text>
       </View>
-      <Button title={'Hello World'} />
+      <Button
+        title={'Hello World'}
+        onPress={handleClickBtn}
+      />
     </View>
   )
 }
