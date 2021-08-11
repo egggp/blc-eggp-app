@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { StyleSheet, Text, View } from 'react-native'
 import Navigation from '@/navigation'
 import useColorScheme from '@/hooks/useColorScheme'
-import { store } from '@/store'
+import store from '@/features'
 
 export default function App() {
   const colorScheme = useColorScheme();
