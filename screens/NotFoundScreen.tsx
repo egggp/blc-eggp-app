@@ -2,10 +2,11 @@ import { StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
 
-export default function HomeScreen () {
+export default function NotFoundScreen () {
   return (
     <View style={styles.container}>
-      <Text>Hello World!!</Text>
+      <Text>Not Founded</Text>
+      <StatusBar style="auto" />
     </View>
   )
 }
