@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Provider } from 'react-redux'
 import { StyleSheet, Text, View } from 'react-native'
-import Navigation from '@/navigation'
+import Navigations from '@/navigations'
 import useColorScheme from '@/hooks/useColorScheme'
 import store from '@/features'
 
@@ -13,7 +13,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
+        <Navigations colorScheme={colorScheme} />
         <StatusBar />
       </SafeAreaProvider>
     </Provider>

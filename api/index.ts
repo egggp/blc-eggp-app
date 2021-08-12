@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from 'axios'
 interface AxiosResponseData {
   code: number
   message: string
-  results: any
+  result: any
 }
 
 export const BASE_URL = 'http://localhost:8000'
@@ -17,7 +17,7 @@ axiosInstance.interceptors.response.use(
     if (response.data.code !== 1000) {
       return Promise.reject(response.data)
     }
-    return response.data.results
+    return response.data.result
   },
   function(error) {
     return Promise.reject(error)

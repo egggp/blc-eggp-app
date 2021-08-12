@@ -7,10 +7,8 @@ import { ColorSchemeName } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import * as React from 'react'
 
-import LinkingConfiguration from './LinkingConfiguration'
-
-import HomeScreen from '@/screens/Home'
-import NotFoundScreen from '@/screens/NotFoundScreen'
+import BottomTabNavigator from '@/navigations/BottomTabNavigator'
+import NotFoundScreen from '@/screens/NotFound.screen'
 
 import { createStackNavigator } from '@react-navigation/stack'
 import { RootStackParamList } from '@/types'
@@ -18,21 +16,20 @@ import { RootStackParamList } from '@/types'
 export default function Navigation ({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
     <NavigationContainer
-      linking={LinkingConfiguration}
       theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
     >
-      <RootNavigator />
       <StatusBar style={'light'} />
+      <RootNavigator />
     </NavigationContainer>
   )
 }
 
 const Stack = createStackNavigator<RootStackParamList>()
 
-function RootNavigator() {
+function RootNavigator () {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Root" component={HomeScreen} />
+      <Stack.Screen name="Root" component={BottomTabNavigator} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   )

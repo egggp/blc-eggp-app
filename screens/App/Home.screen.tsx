@@ -1,8 +1,7 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { StatusBar } from 'expo-status-bar'
-import { Button, PricingCard } from 'react-native-elements'
 import tailwind from 'tailwind-rn'
+import { Text, View } from 'react-native'
+import { Button } from 'react-native-elements'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/features'
 import { HELLO, helloThunks, IHelloState } from '@/features/modules/hello'
@@ -16,7 +15,7 @@ export default function HomeScreen () {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={tailwind('flex-auto bg-white items-center justify-center')}>
       <View style={
         tailwind('bg-blue-200 px-3 py-1 rounded-full mb-2')
       }>
@@ -35,12 +34,3 @@ export default function HomeScreen () {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-})
